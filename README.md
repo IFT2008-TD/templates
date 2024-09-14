@@ -35,8 +35,22 @@ Dans le cas présent, il s'agit des deux répertoires créés par CLion pour sto
 fichiers pertinents à la construction du projet.
 
 ```
+# CLion
+
 .idea/
 cmake-build-debug/
+
+# VS Code
+
+.vscode/
+
+# Netbeans
+
+nbproject/
+dist/
+build/
+Makefile
+
 ```
 
 
@@ -57,15 +71,16 @@ fichiers sources portant l'extension .cpp qui seront compilés dans le projet.
 cmake_minimum_required(VERSION 3.22)
 project([MONPROJET])
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 add_executable([MONPROJET] main.cpp [MESFICHIERSOMPILABLES])
 
 include(FetchContent)
 FetchContent_Declare(
         googletest
-        URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
-)
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG v1.12.x
+        )
 
 FetchContent_MakeAvailable(googletest)
 
@@ -128,8 +143,22 @@ Si on reprend la structure fictive mentionnée au début:
 
 - .gitignore:
 ```
+# CLion
+
 .idea/
 cmake-build-debug/
+
+# VS Code
+
+.vscode/
+
+# Netbeans
+
+nbproject/
+dist/
+build/
+Makefile
+
 ```
 
 - CMakeLists.txt:
@@ -137,15 +166,16 @@ cmake-build-debug/
 cmake_minimum_required(VERSION 3.22)
 project(monProjet)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 add_executable(monProjet main.cpp classe1.cpp classe2.cpp)
 
 include(FetchContent)
 FetchContent_Declare(
         googletest
-        URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
-)
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG v1.12.x
+        )
 
 FetchContent_MakeAvailable(googletest)
 
