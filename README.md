@@ -99,7 +99,8 @@ dans un exécutable appelé MESTESTS.  Il est compilé à partir d'une liste de
 fichiers sources appelée MESFICHIERSTESTSSOURCE.
 
 Vous n'avez donc qu'à remplacer MESTESTS par le nom de l'exécutable de tests, et 
-MESFICHIERSTESTSOURCE par la liste des fichiers nécessaire à la compilation des tests.
+MESFICHIERSTESTSOURCE par la liste des fichiers nécessaire à la compilation des tests.  Attention ces fichiers sont dans
+le répertoire racine du projet, et non dans le répertoire tests.  Il faut indiquer cela avec le préfixe ```${PROJECT_SOURCE_DIR}/```.
 
 ```
 add_executable(
@@ -190,8 +191,8 @@ add_subdirectory(tests)
 add_executable(
         mesTests
         mesTests.cpp
-        classe1.cpp
-        classe2.cpp
+        ${PROJECT_SOURCE_DIR}/classe1.cpp
+        ${PROJECT_SOURCE_DIR}/classe2.cpp
 )
 
 target_include_directories(mesTests PRIVATE ${PROJECT_SOURCE_DIR} )
